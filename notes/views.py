@@ -31,11 +31,11 @@ def update_note(request,slug):
 					error_msg = u"Slug already taken."
 					return HttpResponseServerError(error_msg)
 				note.slug = slut_str
-			if post.has_key('title'):
-				note.title=post['title']
-			if post.has_key('text'):
-				note.text = post['text']
-			note.save()
-			return HttpResponseRedirect(note.get_absolute_url())
+		if post.has_key('title'):
+			note.title=post['title']
+		if post.has_key('text'):
+			note.text = post['text']
+		note.save()
+		return HttpResponseRedirect(note.get_absolute_url())
 	error_msg = u"No POST data sent."
-	return HttpResponeServerError(error_msg)
+	return HttpResponseServerError(error_msg)
